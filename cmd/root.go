@@ -21,8 +21,12 @@ var rootCmd = &cobra.Command{
 			b, _ := io.ReadAll(r)
 			lines := react.ParseRSC(string(b))
 
-			for _, l := range lines {
-				color.Green("%s %v", l.Id, l.Value)
+			for i, l := range lines {
+				if i%2 == 0 {
+					color.Green("%s %v", l.Id, l.Value)
+				} else {
+					color.Cyan("%s %v", l.Id, l.Value)
+				}
 			}
 		}
 	},
