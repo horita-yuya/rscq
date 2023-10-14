@@ -1,4 +1,4 @@
-# React Server Component Parser (v0.1.0 alpha)
+# React Server Component Parser (v0.0.1 alpha)
 
 If you have used Next.js with AppRouter, you may have noticed that browser get React Server Component from Next server.
 You can check this request in Network tab of Chrome DevTools.
