@@ -5,10 +5,10 @@ package cmd
 
 import (
 	"github.com/fatih/color"
+	"github.com/spf13/cobra"
 	"io"
 	"os"
-
-	"github.com/spf13/cobra"
+	"rscq/cmd/react"
 )
 
 var rootCmd = &cobra.Command{
@@ -19,7 +19,7 @@ var rootCmd = &cobra.Command{
 		if len(args) == 0 {
 			r := os.Stdin
 			b, _ := io.ReadAll(r)
-			lines := parseRSC(string(b))
+			lines := react.ParseRSC(string(b))
 
 			for _, l := range lines {
 				color.Green("%s %v", l.Id, l.Value)
