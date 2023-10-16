@@ -7,17 +7,24 @@ import (
 
 func DisplayRSC(lines []RSCLine) {
 	indent := "  "
+	sep := "--------------------"
 	for _, l := range lines {
+		if l.Id == "0" {
+			color.Red("%s", l.Value)
+		}
 		switch l.Value.(type) {
 		case []interface{}:
-			color.Yellow("%s", l.Id)
+			color.Magenta("%s%s", l.Id, sep)
 			displayValue(l.Value, indent)
+			color.Magenta("%s%s", sep, l.Id)
 		case chunkImport:
-			color.Magenta("%s Import Chunk", l.Id)
+			color.Magenta("%s%s", l.Id, sep)
 			displayValue(l.Value, indent)
+			color.Magenta("%s%s", sep, l.Id)
 		default:
-			color.Green("%s\n", l.Id)
+			color.Magenta("%s%s\n", l.Id, sep)
 			displayValue(l.Value, indent)
+			color.Magenta("%s%s\n", sep, l.Id)
 		}
 	}
 }
@@ -26,16 +33,16 @@ func displayValue(value any, indent string) {
 	switch value.(type) {
 	case []interface{}:
 		for _, v := range value.([]interface{}) {
-			displayValue(v, indent+indent)
+			displayValue(v, indent)
 		}
 	case JSXElement:
-		color.Cyan("%v", formatJSX(value.(JSXElement), indent))
+		color.Magenta("%v", formatJSX(value.(JSXElement), indent))
 	case chunkImport:
 		for _, v := range value.(chunkImport).Chunks {
 			color.Magenta("%s%v", indent, v)
 		}
 	default:
-		color.Green("%s%v", indent, value)
+		color.Magenta("%s%v", indent, value)
 	}
 }
 
@@ -67,6 +74,8 @@ func formatJSX(jsx JSXElement, indent string) string {
 					formatted += fmt.Sprintf("\n%s%v\n", childIndent+indent, child)
 				}
 			}
+		case JSXElement:
+			formatted += fmt.Sprintf("\n%v\n", formatJSX(children.(JSXElement), childIndent+indent))
 		default:
 			formatted += fmt.Sprintf("\n%s%v\n", indent+childIndent, children)
 		}
