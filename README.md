@@ -49,7 +49,7 @@ a:["$","div",null,{"children":"Heavy Server Component"}]
 
 I can read it if I try, but I want it to be easier to read.
 
-rscq is a tool to parse this payload. You can try `cat examples/sample2.rsc | go run main.go`
+rscq is a tool to parse this payload. You can try `cat examples/sample2.rsc | rscq`
 
 ```
 0--------------------
