@@ -20,14 +20,7 @@ var rootCmd = &cobra.Command{
 			r := os.Stdin
 			b, _ := io.ReadAll(r)
 			lines := react.ParseRSC(string(b))
-
-			for i, l := range lines {
-				if i%2 == 0 {
-					color.Green("%s %v", l.Id, l.Value)
-				} else {
-					color.Cyan("%s %v", l.Id, l.Value)
-				}
-			}
+			react.DisplayRSC(lines)
 		}
 	},
 }
