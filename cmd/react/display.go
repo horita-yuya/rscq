@@ -9,9 +9,6 @@ func DisplayRSC(lines []RSCLine) {
 	indent := "  "
 	sep := "--------------------"
 	for _, l := range lines {
-		if l.Id == "0" {
-			color.Red("%s", l.Value)
-		}
 		switch l.Value.(type) {
 		case []interface{}:
 			color.Magenta("%s%s", l.Id, sep)

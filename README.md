@@ -1,4 +1,4 @@
-# React Server Component Parser (v0.0.1 alpha)
+# React Server Component Parser (v0.0.2 alpha)
 
 If you have used Next.js with AppRouter, you may have noticed that browser get React Server Component from Next server.
 You can check this request in Network tab of Chrome DevTools.
@@ -47,31 +47,74 @@ I can read it if I try, but I want it to be easier to read.
 rscq is a tool to parse this payload. You can try `cat examples/sample2.rsc | go run main.go`
 
 ```
-0 [N157NNKhIC8b0k4urA243 [[children [id page3 d] [[id page3 d] map[children:[__PAGE__ map[]]]] $L1 [[] $L2]]]]
-3 Import id: name: chunks[ 3 elements ]
-4 Import id: name: chunks[ 3 elements ]
-1 <$L3 segmentPath=[children [id page3 d] children] childProp=map[current:[$L5 $L6 <nil>] segment:__PAGE__] parallelRouterKey=children template=<$L4></$L4>></$L3>
-2 [<meta key=0 charSet=utf-8></meta> <meta key=1 name=viewport content=width=device-width, initial-scale=1></meta> <link key=2 rel=icon href=/favicon.ico type=image/x-icon sizes=16x16></link>]
-8 "$Sreact.suspense"
-9 Import id: name:Client4 chunks[ 2 elements ]
-6 <div>
-    [$L7 <$8 fallback=<div>
-    Preparing
-</div>>
-    <$L9>
-    $La
-</$L9>
-</$8>]
-</div>
-5 <nil>
-b Import id: name:Client1 chunks[ 2 elements ]
-7 <div>
-    [This is Light Server Component <div>
-    <$Lb title=Light Component></$Lb>
-</div>]
-</div>
-a <div>
-    Heavy Server Component
-</div>
+0--------------------
+  N157NNKhIC8b0k4urA243
+  children
+  id
+  page3
+  d
+  id
+  page3
+  d
+  map[children:[__PAGE__ map[]]]
+  $L1
+  $L2
+--------------------0
+3--------------------
+  272:static/chunks/webpack-bf6fccfdfe35d157.js
+  971:static/chunks/fd9d1056-2581dce591ac5cde.js
+  864:static/chunks/864-b23738e09c185fe9.js
+--------------------3
+4--------------------
+  272:static/chunks/webpack-bf6fccfdfe35d157.js
+  971:static/chunks/fd9d1056-2581dce591ac5cde.js
+  864:static/chunks/864-b23738e09c185fe9.js
+--------------------4
+1--------------------
+  <$L3 segmentPath=[children [id page3 d] children] parallelRouterKey=children template={$L4  map[]} childProp=map[current:[$L5 $L6 <nil>] segment:__PAGE__]>  </$L3>
+--------------------1
+2--------------------
+  <meta key=0 charSet=utf-8>  </meta>
+  <meta key=1 name=viewport content=width=device-width, initial-scale=1>  </meta>
+  <link key=2 rel=icon href=/favicon.ico type=image/x-icon sizes=16x16>  </link>
+--------------------2
+8--------------------
+  "$Sreact.suspense"
+--------------------8
+9--------------------
+  233:static/chunks/233-f9c6a8ef9ae4b8c3.js
+  531:static/chunks/app/[id]/page-d4e2ada29cefa5fc.js
+--------------------9
+6--------------------
+  <div>
+    $L7
 
+    <$8 fallback={div  map[children:Preparing]}>
+      <$L9>
+        $La
+      </$L9>
+    </$8>
+  </div>
+--------------------6
+5--------------------
+  <nil>
+--------------------5
+b--------------------
+  233:static/chunks/233-f9c6a8ef9ae4b8c3.js
+  531:static/chunks/app/[id]/page-d4e2ada29cefa5fc.js
+--------------------b
+7--------------------
+  <div>
+    This is Light Server Component
+
+    <div>
+      <$Lb title=Light Component>      </$Lb>
+    </div>
+  </div>
+--------------------7
+a--------------------
+  <div>
+    Heavy Server Component
+  </div>
+--------------------a
 ```
