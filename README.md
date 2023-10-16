@@ -11,13 +11,12 @@ You can check this request in Network tab of Chrome DevTools.
 Sometimes, it doesn't appear in the tab. Then you can copy curl command and run it in terminal as the following.
 
 ```
-curl 'http://localhost:3000/page3?_rsc=1pmm9' \
+curl 'http://localhost:3000/page3?_rsc=8nwf1' \
   -H 'Accept: */*' \
   -H 'Accept-Language: en-US,en;q=0.9,ja;q=0.8,pl;q=0.7' \
   -H 'Connection: keep-alive' \
-  -H 'Cookie: Idea-bf3098b7=c656c584-9e67-4a35-b4c3-11248ca02880; next-auth.csrf-token=02f1ed3bf17904c2bc7917b337af6af072b2bd26a69cbababf8211bc3d3f97de%7C85fa62240c44c41e20205d1e8465520bb7173c70ff9d953562d6f17606a8b4a0; _ga=GA1.1.307397531.1696336373; next-auth.callback-url=http%3A%2F%2Flocalhost%3A3000%2F; _ga_FJFF8ZDYCT=GS1.1.1696945530.5.0.1696945530.0.0.0; io=rj8KxW0REocIUSRTAAAz' \
-  -H 'Next-Router-State-Tree: %5B%22%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%5D%7D%2Cnull%2Cnull%2Ctrue%5D' \
-  -H 'Next-Url: /' \
+  -H 'Next-Router-State-Tree: %5B%22%22%2C%7B%22children%22%3A%5B%5B%22id%22%2C%22page3%22%2C%22d%22%5D%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%5D%7D%2Cnull%2C%22refetch%22%5D%7D%5D' \
+  -H 'Next-Url: /page3' \
   -H 'RSC: 1' \
   -H 'Referer: http://localhost:3000/' \
   -H 'Sec-Fetch-Dest: empty' \
