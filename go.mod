@@ -1,4 +1,4 @@
-module github/horita-yuya/rscq
+module github.com/horita-yuya/rscq
 
 go 1.21.0
 
