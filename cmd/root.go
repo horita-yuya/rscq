@@ -6,9 +6,9 @@ package cmd
 import (
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
+	"github/horita-yuya/rscq/cmd/react"
 	"io"
 	"os"
-	"rscq/cmd/react"
 )
 
 var rootCmd = &cobra.Command{
