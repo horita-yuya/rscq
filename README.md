@@ -1,8 +1,8 @@
-# React Server Component Parser (v0.0.6 alpha)
+# React Server Component Parser (v0.2.0 beta)
 
 ### Install
 ```
-go install github.com/horita-yuya/rscq@0.0.6-alpha
+go install github.com/horita-yuya/rscq@0.2.0-beta
 ```
 
 If you have used Next.js with AppRouter, you may have noticed that browser get React Server Component from Next server.
@@ -76,12 +76,35 @@ rscq is a tool to parse this payload. You can try `cat examples/sample2.rsc | rs
   864:static/chunks/864-b23738e09c185fe9.js
 --------------------4
 1--------------------
-  <$L3 segmentPath=[children [id page3 d] children] parallelRouterKey=children template={$L4  map[]} childProp=map[current:[$L5 $L6 <nil>] segment:__PAGE__]>  </$L3>
+  <$L3
+    childProp={map[current:[$L5 $L6 <nil>] segment:__PAGE__]}
+    segmentPath={[children [id page3 d] children]}
+    template={
+      <$L4>
+      </$L4>
+    }
+
+    parallelRouterKey={children}
+  >
+  </$L3>
 --------------------1
 2--------------------
-  <meta key=0 charSet=utf-8>  </meta>
-  <meta key=1 name=viewport content=width=device-width, initial-scale=1>  </meta>
-  <link key=2 rel=icon href=/favicon.ico type=image/x-icon sizes=16x16>  </link>
+  <meta key=0
+    charSet={utf-8}
+  >
+  </meta>
+  <meta key=1
+    name={viewport}
+    content={width=device-width, initial-scale=1}
+  >
+  </meta>
+  <link key=2
+    rel={icon}
+    href={/favicon.ico}
+    type={image/x-icon}
+    sizes={16x16}
+  >
+  </link>
 --------------------2
 8--------------------
   "$Sreact.suspense"
@@ -94,7 +117,14 @@ rscq is a tool to parse this payload. You can try `cat examples/sample2.rsc | rs
   <div>
     $L7
 
-    <$8 fallback={div  map[children:Preparing]}>
+    <$8
+      fallback={
+        <div>
+          Preparing
+        </div>
+      }
+
+    >
       <$L9>
         $La
       </$L9>
@@ -113,7 +143,10 @@ b--------------------
     This is Light Server Component
 
     <div>
-      <$Lb title=Light Component>      </$Lb>
+      <$Lb
+        title={Light Component}
+      >
+      </$Lb>
     </div>
   </div>
 --------------------7
